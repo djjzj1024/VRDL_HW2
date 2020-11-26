@@ -9,3 +9,5 @@ Original data given from TA contains `digitStruct.mat` which contains the annota
 ```
 python svhn_dataextract_tojson.py -f ${MAT_FILE} -o ${OUT_FILE}
 ```
+
+`utils.py` contains useful function for data preparation.
