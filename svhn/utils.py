@@ -98,3 +98,38 @@ def split_train_val_to_annotaion(ann_file, train_out, val_out,
 
     convert_digitStruct_to_COCO(train_data, train_out, image_prefix, categories)
     convert_digitStruct_to_COCO(val_data, val_out, image_prefix, categories)
+
+def bbox_json_to_submission(bbox_file, ann_file, out_file, score_thr=0.5):
+    """
+    Convert bbox.json create from ./mmdetection/tools/test.py to submission.json
+
+    :param bbox_file: .bbox.json file name.
+    :param ann_file: Annotation file name.
+    :param out_file: Output file name.
+    :param score_thr: Discard bbox with score under score_thr
+    """
+    bbox_info = mmcv.load(bbox_file)
+    ann_info = mmcv.load(ann_file)
+
+    submission = [{} for _ in range(len(ann_info['images']))]
+    for image in submission:
+        image['bbox'] = []
+        image['score'] = []
+        image['label'] = []
+
+    for bbox in bbox_info:
+        if bbox['score'] < score_thr:
+            continue
+        
+        idx = bbox['image_id']
+        left, top, width, height = bbox['bbox']
+        score = bbox['score']
+        label = bbox['category_id']
+
+        submission[idx]['bbox'].append(
+            (top, left, top + height, left + width))
+        submission[idx]['score'].append(score)
+        submission[idx]['label'].append(label)
+
+    with open(out_file, 'w') as f:
+        json.dump(submission, f)
