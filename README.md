@@ -1,6 +1,6 @@
 # VRDL_HW2
 
-The code for assignment in Selected Topics in Visual Recognition using Deep Learning, NCTU.
+The code for the assignment of Selected Topics in Visual Recognition using Deep Learning, NCTU, in fall 2020.
 
 ## Abstract
 
@@ -56,7 +56,7 @@ python ./mmdetection/tools/train.py ./faster_rcnn_r50_fpn_1x_svhn.py
 
 ## Test
 
-Replace the ${CHECKPOINT} with the checkpoint file corresponding to the configuration.  
+Replace the `${CHECKPOINT}` with the checkpoint file corresponding to the configuration.  
 The checkpoint of 1x (12 epochs) we trained could be download [here](https://drive.google.com/file/d/1-NgPX85Eb0IGGFyM0Lb4kxlAqfhLqvhk/view?usp=sharing).
 
 ```
