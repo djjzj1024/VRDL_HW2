@@ -4,7 +4,7 @@ The code for the assignment of Selected Topics in Visual Recognition using Deep 
 
 ## Abstract
 
-The jupyter notebook contains the all the workflow, all the work is done on Google Colab.  
+The jupyter notebook contains all the workflow, and all the work is done on Google Colab.  
 You can follow the notebook to check the detail if you want.
 
 ## Hardware
