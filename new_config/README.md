@@ -1,4 +1,4 @@
-# New config and submission
+# New config and checkpoint
 
 The task is to ditect numbers, and it does not sound reasonable to flip the image. Hence, we remove the flip in the data augmentation and replace it with photometric distortion.  
 At the same time because most of the anchors have aspect ratio > 1, we set the ratio to 1.5, 2.0 and 3.0.
